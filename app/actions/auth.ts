@@ -115,7 +115,8 @@ export async function getCurrentUser(): Promise<User | null> {
     },
   ]
 
-  const userId = cookies().get("user_id")?.value
+  const cookieStore = await cookies();
+  const userId = cookieStore.get("user_id")?.value
 
   if (!userId) {
     return null
